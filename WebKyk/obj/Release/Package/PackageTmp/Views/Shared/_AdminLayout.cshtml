@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Admin Paneli</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/sidebar/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+
+    <link href="~/Content/sidebar/css/simple-sidebar.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">Admin İşlemleri</div>
+            <div class="list-group list-group-flush">
+                <a href="/Admin/TakimEkle" class="list-group-item list-group-item-action bg-light">Takım Ekle</a>
+                <a href="/Admin/TakimlariDuzenle" class="list-group-item list-group-item-action bg-light">Takım Sil</a>
+                <a href="/Admin/OyuncuEkle" class="list-group-item list-group-item-action bg-light">Oyuncu Ekle</a>
+                <a href="/Admin/OyunculariDuzenle" class="list-group-item list-group-item-action bg-light">Oyuncu Sil</a>
+                <a href="/Admin/MacEkle" class="list-group-item list-group-item-action bg-light">Maç Ekle</a>
+                <a href="/Admin/MaclariDuzenle" class="list-group-item list-group-item-action bg-light">Maç Sil</a>
+                <a href="/Admin/OynanacakMacEkle" class="list-group-item list-group-item-action bg-light">Oynanacak Maç Ekle</a>
+                <a href="/Admin/OynanacakMaclariDuzenle" class="list-group-item list-group-item-action bg-light">Oynanacak Maç Sil</a>
+                <a href="/Admin/GolKralligi" class="list-group-item list-group-item-action bg-light">Gol Krallığı Düzenle</a>
+                <a href="/Admin/HaftaninEnleri" class="list-group-item list-group-item-action bg-light">Haftanın Enlerini Düzenle</a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button class="btn btn-primary" id="menu-toggle">Menü</button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/Home/Cikis">Çıkış Yap</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="jumbotron">
+                <div class="container">
+
+                    @RenderBody()
+
+                </div>
+            </div>
+
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/Content/sidebar/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/sidebar/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });</script>
+</body>
+</html>

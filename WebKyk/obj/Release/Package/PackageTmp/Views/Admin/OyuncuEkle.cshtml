@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "OyuncuEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Oyuncu Ekle</h3>
+<hr />
+@model WebKyk.Models.TablolarDB
+
+@using (Html.BeginForm("OyuncuEkle", "Admin", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>Takım Seçiniz:</td>
+            <td>
+                <select name="takimID">
+                    @foreach (var item in Model.Takims)
+                    {
+                        <option value="@item.takimID">@item.ad Takımı</option>
+                    }
+                </select>
+
+            </td>
+        </tr>
+    </table>
+   
+
+    <!-- Oyuncu Giriniz -->
+    <input class="form-control" type="text" name="ad" placeholder="Oyuncu Giriniz" required>
+    <!-- Oyuncu Ekle Butonu-->
+    <input class="form-control" type="submit" name="ekleoyuncu" value="Kaydet">
+}
+
+<hr />
+
+<div class="row text-center">
+    @foreach (var item in Model.Takims)
+    {
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="icerik">
+                <div class="table-responsive">
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <td><strong>@item.ad Takımı</strong></td>
+                            </tr>
+                        </thead>
+                        <tbody style="background-color: rgba(255, 255, 255, 0.1)">
+
+                            @foreach (var item2 in item.Oyuncular)
+                            {
+                                <tr>
+                                    <td>@item2.ad</td>
+                                </tr>
+                            }
+                        </tbody>
+
+
+                    </table>
+                </div>
+            </div>
+            <hr>
+        </div>
+    }
+</div>

@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "HaftaninEnleri";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>HaftaninEnleri</h3>
+<hr/>
+
+@model WebKyk.Models.TablolarDB
+
+
+@using (Html.BeginForm("HaftaninEnleri", "Admin", FormMethod.Post))
+{
+    <div class="table-responsive justify-content-center">
+        <table class="table table-striped table-dark">
+            <tr>
+                <td>Haftanın Oyuncusunu Seçiniz: </td>
+                <td>
+                    <select name="haftaninOyuncusu">
+                        @foreach (var item in Model.Oyunculars)
+                        {
+                            <option value="@item.ad">@item.ad</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Haftanın Kalecisini Seçiniz: </td>
+                <td>
+                    <select name="haftaninKalecisi">
+                        @foreach (var item in Model.Oyunculars)
+                        {
+                            <option value="@item.ad">@item.ad</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Haftanın Defansını Seçiniz: </td>
+                <td>
+                    <select name="haftaninDefansi">
+                        @foreach (var item in Model.Oyunculars)
+                        {
+                            <option value="@item.ad">@item.ad</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Haftanın Ortasahasını Seçiniz: </td>
+                <td>
+                    <select name="haftaninOrtasahasi">
+                        @foreach (var item in Model.Oyunculars)
+                        {
+                            <option value="@item.ad">@item.ad</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Haftanın Forvetini Seçiniz: </td>
+                <td>
+                    <select name="haftaninForveti">
+                        @foreach (var item in Model.Oyunculars)
+                        {
+                            <option value="@item.ad">@item.ad</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <input class="form-control" type="submit" name="ekleen" value="Kaydet">
+}
+
+<hr />
+
+<div class="table-responsive justify-content-center">
+    <table class="table table-dark">
+        <tr>
+            <td><strong>haftanin Oyuncusu</strong></td>
+            <td>@Model.Enlers[0].haftaninOyuncusu</td>
+        </tr>
+        <tr>
+            <td><strong>haftanin Kalecisi</strong></td>
+            <td>@Model.Enlers[0].haftaninKalecisi</td>
+        </tr>
+        <tr>
+            <td><strong>haftanin Defansı</strong></td>
+            <td>@Model.Enlers[0].haftaninDefansi</td>
+        </tr>
+        <tr>
+            <td><strong>haftanin Ortasahası</strong></td>
+            <td>@Model.Enlers[0].haftaninOrtasahasi</td>
+        </tr>
+        <tr>
+            <td><strong>haftanin Forveti</strong></td>
+            <td>@Model.Enlers[0].haftaninForveti</td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Fikstur";
+}
+
+@model WebKyk.Models.TablolarDB
+<h3><strong>Oynanacak Maçlar</strong></h3>
+<hr />
+
+<div class="row text-center">
+    @foreach (var item in Model.Grups)
+    {
+        <div class="col-md-6 col-sm-6 col-12">
+            <div class="icerik">
+                <h5>@item.ad Grubu Maçları</h5>
+                <div class="table-responsive">
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <td><strong>Ev Sahibi</strong></td>
+                                <td><strong>-</strong></td>
+                                <td><strong>Deplasman</strong></td>
+                                <td><strong>Tarihi</strong></td>
+                            </tr>
+                        </thead>
+
+                        <tbody style="background-color: rgba(255, 255, 255, 0.1)">
+                            @foreach (var item2 in item.OynanacakMaclar)
+                            {
+                                <tr>
+
+                                    <td>@item2.birincitakimismi</td>
+
+                                    <td><strong>VS</strong></td>
+                                    <td>@item2.ikincitakimismi</td>
+                                    <td>@item2.mactarihi.ToString("dd.MM.yyyy hh:mm")</td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            <hr>
+        </div>
+    }
+</div>
+
+

@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "OynanacakMacEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Oynanacak Maç Ekle</h3>
+<hr />
+@model WebKyk.Models.TablolarDB
+
+
+@using (Html.BeginForm("OynanacakMacEkle", "Admin", FormMethod.Post))
+{
+    <div class="table-responsive justify-content-center">
+        <table class="table table-striped table-dark">
+
+            <thead>
+                <tr>
+                    <td><strong>Evsahibi</strong></td>
+                    <td></td>
+                    <td><strong>Deplasman</strong></td>
+                    <td><strong>Grubu</strong></td>
+                    <td>Tarihi</td>
+                </tr>
+            </thead>
+
+            <tbody style="background-color: rgba(255, 255, 255, 0.1)">
+                <tr>
+                    <td>
+                        <select name="birincitakimismi">
+                            @foreach (var item in Model.Takims)
+                            {
+                                <option value="@item.ad">@item.ad</option>
+                            }
+                        </select>
+                    </td>
+
+                    <td>
+                        <strong>V</strong>
+                    </td>
+
+                    <td>
+                        <select name="ikincitakimismi">
+                            @foreach (var item in Model.Takims)
+                            {
+                                <option value="@item.ad">@item.ad</option>
+                            }
+                        </select>
+                    </td>
+                    <td>
+                        <select name="grupID">
+                            @foreach (var item in Model.Grups)
+                            {
+                                <option value="@item.grupID">@item.ad Grubu</option>
+                            }
+                        </select>
+                    </td>
+                    <td><input type="datetime-local" name="mactarihi" required /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <input class="form-control" type="submit" value="Maç Ekle">
+}
+
+<hr />
+<div class="row text-center">
+@foreach (var item in Model.Grups)
+{
+    <div class="col-md-6 col-sm-6 col-12">
+        <div class="icerik">
+            <h4>@item.ad Grubu</h4>
+            <div class="table-responsive">
+                <table class="table table-striped table-dark">
+                    <thead>
+                        <tr>
+                            <td><strong>Ev Sahibi Takım</strong></td>
+                            <td><strong>-</strong></td>
+                            <td><strong>Deplasman Takım</strong></td>
+                            <td><strong>Tarihi</strong></td>
+                        </tr>
+                    </thead>
+
+                    <tbody style="background-color: rgba(255, 255, 255, 0.1)">
+                        @foreach (var item2 in item.OynanacakMaclar)
+                        {
+                            <tr>
+
+                                <td>@item2.birincitakimismi</td>
+
+                                <td><strong>VS</strong></td>
+                                <td>@item2.ikincitakimismi</td>
+                                <td>@item2.mactarihi.ToString("dd.MM.yyyy hh:mm")</td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+        <hr>
+    </div>
+}
+</div>

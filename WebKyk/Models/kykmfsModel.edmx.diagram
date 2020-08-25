@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5378c35d9a7d4c9bbc56106e19921725" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="mfskykModel.Gruplar" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="mfskykModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mfskykModel.Takimlar" Width="1.5" PointX="3" PointY="2" />
+        <AssociationConnector Association="mfskykModel.FK_Takimlar_Gruplar" />
+        <EntityTypeShape EntityType="mfskykModel.Kullanici" Width="1.5" PointX="1" PointY="6.125" />
+        <EntityTypeShape EntityType="mfskykModel.Oyuncular" Width="1.5" PointX="5.5" PointY="0.75" />
+        <AssociationConnector Association="mfskykModel.FK_Oyuncular_Takimlar" />
+        <EntityTypeShape EntityType="mfskykModel.Enler" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="mfskykModel.OynanacakMaclar" Width="1.5" PointX="3.875" PointY="7.375" />
+        <AssociationConnector Association="mfskykModel.FK_OynanacakMaclar_Gruplar" />
+        <EntityTypeShape EntityType="mfskykModel.Maclar" Width="1.5" PointX="5.625" PointY="6.125" />
+        <AssociationConnector Association="mfskykModel.FK_Maclar_Gruplar" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

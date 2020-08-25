@@ -1,0 +1,55 @@
+﻿@model WebKyk.Models.TablolarDB
+
+<!--- gruplar basi -->
+<h3><strong>GRUPLAR</strong></h3>
+<hr>
+<div class="row text-center">
+    @foreach (var item in Model.Grups)
+    {
+        
+        <div class="col-md-6 col-sm-6 col-12">
+            <div class="icerik">
+                <h4>@item.ad Grubu</h4>
+                <div class="table-responsive">
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <td><strong>Takımlar</strong></td>
+                                <td>OM</td>
+                                <td>G</td>
+                                <td>B</td>
+                                <td>M</td>
+                                <td>AG</td>
+                                <td>YG</td>
+                                <td>A</td>
+                                <td><strong>P</strong></td>
+                            </tr>
+                        </thead>
+
+                        <tbody style="background-color: rgba(255, 255, 255, 0.1)">
+                            @foreach (var item2 in item.Takimlar)
+                            {
+                                <tr>
+
+                                    <td>@item2.ad</td>
+                                    <td>@item2.oynananMac</td>
+                                    <td>@item2.galibiyet</td>
+                                    <td>@item2.beraberlik</td>
+                                    <td>@item2.maglubiyet</td>
+                                    <td>@item2.attigiGol</td>
+                                    <td>@item2.yedigiGol</td>
+                                    <td>@item2.averaj</td>
+                                    <td><strong>@item2.toplamPuan</strong></td>
+                                </tr>
+                            }
+                        </tbody>
+
+
+                    </table>
+                    </div>
+                </div>
+                <hr>
+            </div>
+    }
+</div>
+<!--- gruplar sonu -->

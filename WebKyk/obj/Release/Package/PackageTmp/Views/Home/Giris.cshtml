@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Giris";
+}
+@model WebKyk.Models.Kullanici
+<h4>Admin Paneli</h4>
+<hr />
+<!-- Default form login -->
+
+@ViewBag.Hata
+<div class="row text-center">
+    <div class="col-md-6 col-sm-6 col-12">
+
+        @using (Html.BeginForm("Giris", "Home", FormMethod.Post))
+        {
+            <p class="h4 mb-4">Admin Giriş</p>
+            <!-- Email -->
+            @Html.TextBoxFor(m => m.kullaniciAdi, new { @class = "form-control", placeholder = "Kullanıcı Adı" })
+
+            <!-- Password -->
+
+            @Html.TextBoxFor(m => m.kullaniciSifre, new { @class = "form-control", placeholder = "Şifre" })
+
+            <!-- Sign in button -->
+            <button class="btn btn-info btn-block my-4" type="submit">Giriş Yap</button>
+        }
+    </div>
+</div>
+
+    
+
+
+    <!-- Default form login -->

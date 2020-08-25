@@ -1,0 +1,124 @@
+﻿﻿<!DOCTYPE html>
+ <html>
+
+ <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>KYKMFS</title>
+     <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+     <link href="~/Content/site/bootstrap/css/bootstrap.css" rel="stylesheet">
+     <link href="~/Content/site/style.css" rel="stylesheet">
+
+ </head>
+
+ <body>
+     <!--- navigationbar kısmı -->
+     <nav class="navbar navbar-dark bg-dark navbar-expand-md">
+         <div class="container-fluid">
+             <a class="navbar-brand" href="/Home/Index">KYK MFS</a>
+             <button class="navbar-toggler" data-target="#navbarNav" data-toggle="collapse" type="button">
+                 <span class="navbar-toggler-icon"></span>
+             </button>
+             <div class="collapse navbar-collapse" id="navbarNav">
+                 <ul class="navbar-nav ml-auto">
+                     <li class="nav-item">
+                         <a class="nav-link" href="/Home/Index">Anasayfa</a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link" href="/Home/Gruplar">Gruplar</a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link" href="/Home/Takimlar">Takımlar</a>
+                     </li>
+                     <li>
+                         <div class="dropdown show">
+                             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 Fikstur
+                             </a>
+
+                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                 <a class="dropdown-item" href="/Home/FiksturOynanacak">Oynanacak Maçlar</a>
+                                 <a class="dropdown-item" href="/Home/FiksturOynanan">Oynanan Maçlar</a>
+                             </div>
+                         </div>
+
+                     </li>
+                 </ul>
+             </div>
+         </div>
+     </nav>
+
+
+
+     <!--- navigationbar sonu -->
+     <!--- secenekler basi -->
+     <div class="jumbotron">
+         <div class="container">
+
+             @RenderBody()
+
+         </div>
+     </div>
+     <!--- secenekler sonu -->
+     <!--- sosyalmedya basi -->
+     <div class="container">
+         <h4>Sosyal Medya Hesaplarımız</h4>
+         <hr>
+         <div class="row text-center sosyalmedya">
+             <div class="col-md-3 col-sm-6 col-6">
+                 <a href="https://www.facebook.com/groups/kykmfs"><img src="~/Content/site/img/sosyalmedya/ikon-facebook.png" /></a>
+             </div>
+             <div class="col-md-3 col-sm-6 col-6">
+                 <a href="https://twitter.com/kykmfs"><img src="~/Content/site/img/sosyalmedya/ikon-twitter.png" alt="" /></a>
+             </div>
+             <div class="col-md-3 col-sm-6 col-6">
+                 <a href="https://www.instagram.com/kykmfs"><img src="~/Content/site/img/sosyalmedya/ikon-instagram.png" alt="" /></a>
+             </div>
+             <div class="col-md-3 col-sm-6 col-6">
+                 <a href="https://www.youtube.com/channel/UCF216vspSuIWM_2Ug_Q74Cw"><img src="~/Content/site/img/sosyalmedya/ikon-youtube.png" alt="" /></a>
+             </div>
+         </div>
+         <hr>
+     </div>
+     <!--- sosyalmedya sonu -->
+     <!--- footer basi -->
+     <footer>
+         <div class="container">
+             <div class="row text-center">
+                 <div class="col-md-4">
+                     <h4>VİZYON SÖZ</h4>
+                     <p>"Geçmişten öğren, bugün için yaşa, yarın için umut et."</p>
+                 </div>
+                 <div class="col-md-4">
+                     <h4>COPYRIGHT</h4>
+                     <p>
+                         Tüm hakları saklıdır.
+                         <br>
+                         Copyright &copy; 2019 <strong>Ziroo&Neff</strong>
+                     </p>
+                 </div>
+                 <div class="col-md-4">
+                     <h4>İLETİŞİM</h4>
+                     <p>
+                         yusufholat@gmail.com
+                         <br>
+                         canorten@gmail.com
+                         <br/>
+                         İletişim için  <a href="https://www.instagram.com/yusufholatt/"><strong>tıklayın</strong></a>
+                     </p>
+                 </div>
+             </div><!--- satir sonu -->
+         </div> <!--- container sonu -->
+     </footer>
+     <!--- footer sonu -->
+
+     <script src="~/Content/sidebar/vendor/jquery/jquery.js"></script>
+     <script src="~/Content/sidebar/vendor/bootstrap/js/bootstrap.min.js"></script>
+     <link href="~/Content/sidebar/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+     @Scripts.Render("~/bundles/jquery")
+     @Scripts.Render("~/bundles/bootstrap")
+     @RenderSection("scripts", required: false)
+ </body>
+ </html>

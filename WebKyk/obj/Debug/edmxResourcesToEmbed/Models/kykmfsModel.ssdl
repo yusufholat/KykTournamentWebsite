@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mfskykModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Enler">
+    <Key>
+      <PropertyRef Name="enlerID" />
+    </Key>
+    <Property Name="enlerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="haftaninOyuncusu" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="haftaninOrtasahasi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="haftaninForveti" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="haftaninDefansi" Type="nvarchar" MaxLength="50" />
+    <Property Name="haftaninKalecisi" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gruplar">
+    <Key>
+      <PropertyRef Name="grupID" />
+    </Key>
+    <Property Name="grupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'mfskyk.dbo.Kullanici' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="kullaniciID" />
+      <PropertyRef Name="isAdmin" />
+      <PropertyRef Name="kullaniciAdi" />
+      <PropertyRef Name="kullaniciSifre" />
+    </Key>
+    <Property Name="kullaniciID" Type="int" Nullable="false" />
+    <Property Name="isAdmin" Type="int" Nullable="false" />
+    <Property Name="kullaniciAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="kullaniciSifre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Maclar">
+    <Key>
+      <PropertyRef Name="macID" />
+    </Key>
+    <Property Name="macID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="birinciTakimID" Type="int" Nullable="false" />
+    <Property Name="ikinciTakimID" Type="int" Nullable="false" />
+    <Property Name="tarih" Type="datetime" />
+    <Property Name="birinciTakimSkor" Type="int" Nullable="false" />
+    <Property Name="ikinciTakimSkor" Type="int" Nullable="false" />
+    <Property Name="ad" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="birinciTakimAdi" Type="nvarchar" MaxLength="50" />
+    <Property Name="ikinciTakimAdi" Type="nvarchar" MaxLength="50" />
+    <Property Name="grupID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OynanacakMaclar">
+    <Key>
+      <PropertyRef Name="oynanacakmacID" />
+    </Key>
+    <Property Name="oynanacakmacID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="birincitakimismi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ikincitakimismi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="mactarihi" Type="datetime" Nullable="false" />
+    <Property Name="grupID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Oyuncular">
+    <Key>
+      <PropertyRef Name="oyuncuID" />
+    </Key>
+    <Property Name="oyuncuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="golSayisi" Type="int" Nullable="false" />
+    <Property Name="asistSayisi" Type="int" Nullable="false" />
+    <Property Name="takimID" Type="int" Nullable="false" />
+    <Property Name="sariKartSayisi" Type="int" Nullable="false" />
+    <Property Name="kirmiziKartSayisi" Type="int" Nullable="false" />
+    <Property Name="mesafe" Type="int" Nullable="false" />
+    <Property Name="formaNo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Takimlar">
+    <Key>
+      <PropertyRef Name="takimID" />
+    </Key>
+    <Property Name="takimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="toplamPuan" Type="int" Nullable="false" />
+    <Property Name="attigiGol" Type="int" Nullable="false" />
+    <Property Name="yedigiGol" Type="int" Nullable="false" />
+    <Property Name="averaj" Type="int" Nullable="false" />
+    <Property Name="galibiyet" Type="int" Nullable="false" />
+    <Property Name="maglubiyet" Type="int" Nullable="false" />
+    <Property Name="grupID" Type="int" Nullable="false" />
+    <Property Name="beraberlik" Type="int" Nullable="false" />
+    <Property Name="oynananMac" Type="int" Nullable="false" />
+    <Property Name="deneme" Type="int" />
+    <Property Name="aaa" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Maclar_Gruplar">
+    <End Role="Gruplar" Type="Self.Gruplar" Multiplicity="1" />
+    <End Role="Maclar" Type="Self.Maclar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gruplar">
+        <PropertyRef Name="grupID" />
+      </Principal>
+      <Dependent Role="Maclar">
+        <PropertyRef Name="grupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OynanacakMaclar_Gruplar">
+    <End Role="Gruplar" Type="Self.Gruplar" Multiplicity="1" />
+    <End Role="OynanacakMaclar" Type="Self.OynanacakMaclar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gruplar">
+        <PropertyRef Name="grupID" />
+      </Principal>
+      <Dependent Role="OynanacakMaclar">
+        <PropertyRef Name="grupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Oyuncular_Takimlar">
+    <End Role="Takimlar" Type="Self.Takimlar" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Oyuncular" Type="Self.Oyuncular" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Takimlar">
+        <PropertyRef Name="takimID" />
+      </Principal>
+      <Dependent Role="Oyuncular">
+        <PropertyRef Name="takimID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Takimlar_Gruplar">
+    <End Role="Gruplar" Type="Self.Gruplar" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Takimlar" Type="Self.Takimlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gruplar">
+        <PropertyRef Name="grupID" />
+      </Principal>
+      <Dependent Role="Takimlar">
+        <PropertyRef Name="grupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="mfskykModelStoreContainer">
+    <EntitySet Name="Enler" EntityType="Self.Enler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gruplar" EntityType="Self.Gruplar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Maclar" EntityType="Self.Maclar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OynanacakMaclar" EntityType="Self.OynanacakMaclar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Oyuncular" EntityType="Self.Oyuncular" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Takimlar" EntityType="Self.Takimlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kullanici" EntityType="Self.Kullanici" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Kullanici].[kullaniciID] AS [kullaniciID], 
+    [Kullanici].[isAdmin] AS [isAdmin], 
+    [Kullanici].[kullaniciAdi] AS [kullaniciAdi], 
+    [Kullanici].[kullaniciSifre] AS [kullaniciSifre]
+    FROM [dbo].[Kullanici] AS [Kullanici]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Maclar_Gruplar" Association="Self.FK_Maclar_Gruplar">
+      <End Role="Gruplar" EntitySet="Gruplar" />
+      <End Role="Maclar" EntitySet="Maclar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OynanacakMaclar_Gruplar" Association="Self.FK_OynanacakMaclar_Gruplar">
+      <End Role="Gruplar" EntitySet="Gruplar" />
+      <End Role="OynanacakMaclar" EntitySet="OynanacakMaclar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Oyuncular_Takimlar" Association="Self.FK_Oyuncular_Takimlar">
+      <End Role="Takimlar" EntitySet="Takimlar" />
+      <End Role="Oyuncular" EntitySet="Oyuncular" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Takimlar_Gruplar" Association="Self.FK_Takimlar_Gruplar">
+      <End Role="Gruplar" EntitySet="Gruplar" />
+      <End Role="Takimlar" EntitySet="Takimlar" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

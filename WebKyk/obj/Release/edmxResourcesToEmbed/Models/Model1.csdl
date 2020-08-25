@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mfshalis_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Enler">
+    <Key>
+      <PropertyRef Name="enlerID" />
+    </Key>
+    <Property Name="enlerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="haftaninOyuncusu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="haftaninOrtasahasi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="haftaninForveti" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="haftaninDefansi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="haftaninKalecisi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gruplar">
+    <Key>
+      <PropertyRef Name="grupID" />
+    </Key>
+    <Property Name="grupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Maclar" Relationship="Self.FK_Maclar_Gruplar" FromRole="Gruplar" ToRole="Maclar" />
+    <NavigationProperty Name="OynanacakMaclar" Relationship="Self.FK_OynanacakMaclar_Gruplar" FromRole="Gruplar" ToRole="OynanacakMaclar" />
+    <NavigationProperty Name="Takimlar" Relationship="Self.FK_Takimlar_Gruplar" FromRole="Gruplar" ToRole="Takimlar" />
+  </EntityType>
+  <EntityType Name="Maclar">
+    <Key>
+      <PropertyRef Name="macID" />
+    </Key>
+    <Property Name="macID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="birinciTakimID" Type="Int32" Nullable="false" />
+    <Property Name="ikinciTakimID" Type="Int32" Nullable="false" />
+    <Property Name="tarih" Type="DateTime" Precision="3" />
+    <Property Name="birinciTakimSkor" Type="Int32" Nullable="false" />
+    <Property Name="ikinciTakimSkor" Type="Int32" Nullable="false" />
+    <Property Name="ad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="birinciTakimAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ikinciTakimAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="grupID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Gruplar" Relationship="Self.FK_Maclar_Gruplar" FromRole="Maclar" ToRole="Gruplar" />
+  </EntityType>
+  <EntityType Name="OynanacakMaclar">
+    <Key>
+      <PropertyRef Name="oynanacakmacID" />
+    </Key>
+    <Property Name="oynanacakmacID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="birincitakimismi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ikincitakimismi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mactarihi" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="grupID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Gruplar" Relationship="Self.FK_OynanacakMaclar_Gruplar" FromRole="OynanacakMaclar" ToRole="Gruplar" />
+  </EntityType>
+  <EntityType Name="Oyuncular">
+    <Key>
+      <PropertyRef Name="oyuncuID" />
+    </Key>
+    <Property Name="oyuncuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="golSayisi" Type="Int32" Nullable="false" />
+    <Property Name="asistSayisi" Type="Int32" Nullable="false" />
+    <Property Name="takimID" Type="Int32" Nullable="false" />
+    <Property Name="sariKartSayisi" Type="Int32" Nullable="false" />
+    <Property Name="kirmiziKartSayisi" Type="Int32" Nullable="false" />
+    <Property Name="mesafe" Type="Int32" Nullable="false" />
+    <Property Name="formaNo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Takimlar" Relationship="Self.FK_Oyuncular_Takimlar" FromRole="Oyuncular" ToRole="Takimlar" />
+  </EntityType>
+  <EntityType Name="Takimlar">
+    <Key>
+      <PropertyRef Name="takimID" />
+    </Key>
+    <Property Name="takimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="toplamPuan" Type="Int32" Nullable="false" />
+    <Property Name="attigiGol" Type="Int32" Nullable="false" />
+    <Property Name="yedigiGol" Type="Int32" Nullable="false" />
+    <Property Name="averaj" Type="Int32" Nullable="false" />
+    <Property Name="galibiyet" Type="Int32" Nullable="false" />
+    <Property Name="maglubiyet" Type="Int32" Nullable="false" />
+    <Property Name="grupID" Type="Int32" Nullable="false" />
+    <Property Name="beraberlik" Type="Int32" Nullable="false" />
+    <Property Name="oynananMac" Type="Int32" Nullable="false" />
+    <Property Name="deneme" Type="Int32" />
+    <Property Name="aaa" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Gruplar" Relationship="Self.FK_Takimlar_Gruplar" FromRole="Takimlar" ToRole="Gruplar" />
+    <NavigationProperty Name="Oyuncular" Relationship="Self.FK_Oyuncular_Takimlar" FromRole="Takimlar" ToRole="Oyuncular" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="kullaniciID" />
+      <PropertyRef Name="isAdmin" />
+      <PropertyRef Name="kullaniciAdi" />
+      <PropertyRef Name="kullaniciSifre" />
+    </Key>
+    <Property Name="kullaniciID" Type="Int32" Nullable="false" />
+    <Property Name="isAdmin" Type="Int32" Nullable="false" />
+    <Property Name="kullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="kullaniciSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Maclar_Gruplar">
+    <End Role="Gruplar" Type="Self.Gruplar" Multiplicity="1" />
+    <End Role="Maclar" Type="Self.Maclar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gruplar">
+        <PropertyRef Name="grupID" />
+      </Principal>
+      <Dependent Role="Maclar">
+        <PropertyRef Name="grupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OynanacakMaclar_Gruplar">
+    <End Role="Gruplar" Type="Self.Gruplar" Multiplicity="1" />
+    <End Role="OynanacakMaclar" Type="Self.OynanacakMaclar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gruplar">
+        <PropertyRef Name="grupID" />
+      </Principal>
+      <Dependent Role="OynanacakMaclar">
+        <PropertyRef Name="grupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Takimlar_Gruplar">
+    <End Role="Gruplar" Type="Self.Gruplar" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Takimlar" Type="Self.Takimlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gruplar">
+        <PropertyRef Name="grupID" />
+      </Principal>
+      <Dependent Role="Takimlar">
+        <PropertyRef Name="grupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Oyuncular_Takimlar">
+    <End Role="Takimlar" Type="Self.Takimlar" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Oyuncular" Type="Self.Oyuncular" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Takimlar">
+        <PropertyRef Name="takimID" />
+      </Principal>
+      <Dependent Role="Oyuncular">
+        <PropertyRef Name="takimID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="mfshalis_Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Enler" EntityType="Self.Enler" />
+    <EntitySet Name="Gruplar" EntityType="Self.Gruplar" />
+    <EntitySet Name="Maclar" EntityType="Self.Maclar" />
+    <EntitySet Name="OynanacakMaclar" EntityType="Self.OynanacakMaclar" />
+    <EntitySet Name="Oyuncular" EntityType="Self.Oyuncular" />
+    <EntitySet Name="Takimlar" EntityType="Self.Takimlar" />
+    <EntitySet Name="Kullanici" EntityType="Self.Kullanici" />
+    <AssociationSet Name="FK_Maclar_Gruplar" Association="Self.FK_Maclar_Gruplar">
+      <End Role="Gruplar" EntitySet="Gruplar" />
+      <End Role="Maclar" EntitySet="Maclar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OynanacakMaclar_Gruplar" Association="Self.FK_OynanacakMaclar_Gruplar">
+      <End Role="Gruplar" EntitySet="Gruplar" />
+      <End Role="OynanacakMaclar" EntitySet="OynanacakMaclar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Takimlar_Gruplar" Association="Self.FK_Takimlar_Gruplar">
+      <End Role="Gruplar" EntitySet="Gruplar" />
+      <End Role="Takimlar" EntitySet="Takimlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Oyuncular_Takimlar" Association="Self.FK_Oyuncular_Takimlar">
+      <End Role="Takimlar" EntitySet="Takimlar" />
+      <End Role="Oyuncular" EntitySet="Oyuncular" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

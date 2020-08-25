@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mfskykModelStoreContainer" CdmEntityContainer="mfskykEntities">
+    <EntitySetMapping Name="Gruplar">
+      <EntityTypeMapping TypeName="mfskykModel.Gruplar">
+        <MappingFragment StoreEntitySet="Gruplar">
+          <ScalarProperty Name="grupID" ColumnName="grupID" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="mfskykModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Takimlar">
+      <EntityTypeMapping TypeName="mfskykModel.Takimlar">
+        <MappingFragment StoreEntitySet="Takimlar">
+          <ScalarProperty Name="aaa" ColumnName="aaa" />
+          <ScalarProperty Name="deneme" ColumnName="deneme" />
+          <ScalarProperty Name="oynananMac" ColumnName="oynananMac" />
+          <ScalarProperty Name="beraberlik" ColumnName="beraberlik" />
+          <ScalarProperty Name="grupID" ColumnName="grupID" />
+          <ScalarProperty Name="maglubiyet" ColumnName="maglubiyet" />
+          <ScalarProperty Name="galibiyet" ColumnName="galibiyet" />
+          <ScalarProperty Name="averaj" ColumnName="averaj" />
+          <ScalarProperty Name="yedigiGol" ColumnName="yedigiGol" />
+          <ScalarProperty Name="attigiGol" ColumnName="attigiGol" />
+          <ScalarProperty Name="toplamPuan" ColumnName="toplamPuan" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="takimID" ColumnName="takimID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanici">
+      <EntityTypeMapping TypeName="mfskykModel.Kullanici">
+        <MappingFragment StoreEntitySet="Kullanici">
+          <ScalarProperty Name="kullaniciSifre" ColumnName="kullaniciSifre" />
+          <ScalarProperty Name="kullaniciAdi" ColumnName="kullaniciAdi" />
+          <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+          <ScalarProperty Name="kullaniciID" ColumnName="kullaniciID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Oyuncular">
+      <EntityTypeMapping TypeName="mfskykModel.Oyuncular">
+        <MappingFragment StoreEntitySet="Oyuncular">
+          <ScalarProperty Name="formaNo" ColumnName="formaNo" />
+          <ScalarProperty Name="mesafe" ColumnName="mesafe" />
+          <ScalarProperty Name="kirmiziKartSayisi" ColumnName="kirmiziKartSayisi" />
+          <ScalarProperty Name="sariKartSayisi" ColumnName="sariKartSayisi" />
+          <ScalarProperty Name="takimID" ColumnName="takimID" />
+          <ScalarProperty Name="asistSayisi" ColumnName="asistSayisi" />
+          <ScalarProperty Name="golSayisi" ColumnName="golSayisi" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="oyuncuID" ColumnName="oyuncuID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enler">
+      <EntityTypeMapping TypeName="mfskykModel.Enler">
+        <MappingFragment StoreEntitySet="Enler">
+          <ScalarProperty Name="haftaninKalecisi" ColumnName="haftaninKalecisi" />
+          <ScalarProperty Name="haftaninDefansi" ColumnName="haftaninDefansi" />
+          <ScalarProperty Name="haftaninForveti" ColumnName="haftaninForveti" />
+          <ScalarProperty Name="haftaninOrtasahasi" ColumnName="haftaninOrtasahasi" />
+          <ScalarProperty Name="haftaninOyuncusu" ColumnName="haftaninOyuncusu" />
+          <ScalarProperty Name="enlerID" ColumnName="enlerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OynanacakMaclar">
+      <EntityTypeMapping TypeName="mfskykModel.OynanacakMaclar">
+        <MappingFragment StoreEntitySet="OynanacakMaclar">
+          <ScalarProperty Name="grupID" ColumnName="grupID" />
+          <ScalarProperty Name="mactarihi" ColumnName="mactarihi" />
+          <ScalarProperty Name="ikincitakimismi" ColumnName="ikincitakimismi" />
+          <ScalarProperty Name="birincitakimismi" ColumnName="birincitakimismi" />
+          <ScalarProperty Name="oynanacakmacID" ColumnName="oynanacakmacID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Maclar">
+      <EntityTypeMapping TypeName="mfskykModel.Maclar">
+        <MappingFragment StoreEntitySet="Maclar">
+          <ScalarProperty Name="grupID" ColumnName="grupID" />
+          <ScalarProperty Name="ikinciTakimAdi" ColumnName="ikinciTakimAdi" />
+          <ScalarProperty Name="birinciTakimAdi" ColumnName="birinciTakimAdi" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="ikinciTakimSkor" ColumnName="ikinciTakimSkor" />
+          <ScalarProperty Name="birinciTakimSkor" ColumnName="birinciTakimSkor" />
+          <ScalarProperty Name="tarih" ColumnName="tarih" />
+          <ScalarProperty Name="ikinciTakimID" ColumnName="ikinciTakimID" />
+          <ScalarProperty Name="birinciTakimID" ColumnName="birinciTakimID" />
+          <ScalarProperty Name="macID" ColumnName="macID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

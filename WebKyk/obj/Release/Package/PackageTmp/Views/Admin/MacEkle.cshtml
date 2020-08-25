@@ -1,0 +1,129 @@
+﻿
+@{
+    ViewBag.Title = "Fikstur";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model WebKyk.Models.TablolarDB
+
+<h3>Maç Ekle</h3>
+<hr />
+
+@using (Html.BeginForm("MacEkle", "Admin", FormMethod.Post))
+{
+    <div class="table-responsive justify-content-center">
+        <table class="table table-striped table-dark">
+
+            <thead>
+                <tr>
+                    <td><strong>Evsahibi Takım</strong></td>
+                    <td>Skor</td>
+                    <td>Skor</td>
+                    <td><strong>Deplasman Takım</strong></td>
+                    <td>Grubu</td>
+                    <td>Tarihi</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>
+                        <select name="birinciTakimID">
+                            @foreach (var item in Model.Takims)
+                            {
+                                <option value="@item.takimID">@item.ad</option>
+                            }
+                        </select>
+                    </td>
+
+                    <td>
+                        <select name="birinciTakimSkor">
+
+                            @for (int i = 0; i < 20; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+
+                        </select>
+
+                    </td>
+
+                    <td>
+                        <select name="ikinciTakimSkor">
+
+                            @for (int i = 0; i < 20; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+
+                        </select>
+
+                    </td>
+                    <td>
+                        <select name="ikinciTakimID">
+                            @foreach (var item in Model.Takims)
+                            {
+                                <option value="@item.takimID">@item.ad</option>
+                            }
+                        </select>
+                    </td>
+                    <td>
+                        <select name="grupID">
+                            @foreach (var item in Model.Grups)
+                            {
+                                <option value="@item.grupID">@item.ad Grubu</option>
+                            }
+                        </select>
+                    </td>
+                    <td><input type="datetime-local" name="tarih" required /></td>
+                </tr>
+            </tbody>
+        </table>
+   </div>
+        <input class="form-control" type="submit" value="Maç Ekle">
+        }
+        <hr />
+
+        <div class="row text-center">
+            @foreach (var item in Model.Grups)
+            {
+
+                <div class="col-md-6 col-sm-6 col-12">
+                    <div class="icerik">
+                        <h4>@item.ad Grubu</h4>
+                        <div class="table-responsive">
+                            <table class="table table-dark">
+                                <thead>
+                                    <tr>
+                                        <td><strong>Ev Sahibi</strong></td>
+                                        <td><strong>Skor</strong></td>
+                                        <td><strong></strong></td>
+                                        <td><strong>Skor</strong></td>
+                                        <td><strong>Deplasman</strong></td>
+                                        <td><strong>Tarihi</strong></td>
+                                    </tr>
+                                </thead>
+
+                                <tbody style="background-color: rgba(255, 255, 255, 0.1)">
+                                    @foreach (var item2 in item.Maclar)
+                                    {
+                                        <tr>
+                                            <td>@item2.birinciTakimAdi</td>
+                                            <td>@item2.birinciTakimSkor</td>
+                                            <td>V</td>
+                                            <td>@item2.ikinciTakimSkor</td>
+                                            <td>@item2.ikinciTakimAdi</td>
+                                            <td>@item2.tarih.Value.ToString("dd.MM.yyyy hh:mm")</td>
+                                        </tr>
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            }
+        </div>
+
+

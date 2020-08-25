@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "Anasayfa";
+}
+
+@model WebKyk.Models.TablolarDB
+<div>
+    <h2>Benim Yurdum Halı mı Saha?</h2>
+    <p>
+        Girilecek paragraf deneme 3-2-1. Yazı stili boyutu oranı tamam.
+    </p>
+</div>
+
+<hr>
+
+<!--- secenekler basi -->
+
+<div class="row text-center">
+    <div class="col-md-4 col-sm-6 col-12">
+        <div class="icerik">
+            <a href="/Home/Gruplar"><img src="~/Content/site/img/hobiler/gruplar.png" width="220px" height="220px"></a>
+            <h3>GRUPLAR</h3>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-12">
+        <div class="icerik">
+            <a href="/Home/Takimlar"><img src="~/Content/site/img/hobiler/takimlar.jpg" width="220px" height="220px"></a>
+            <h3>TAKIMLAR</h3>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-12">
+        <div class="icerik">
+            <a href="/Home/FiksturOynanacak"><img src="~/Content/site/img/hobiler/fikstur.png" width="220px" height="220px"></a>
+            <h3>FİKSTÜR</h3>
+        </div>
+    </div>
+</div>
+<!--- secenekler sonu -->
+
+<hr />
+<!--- secenekler basi -->
+
+<div class="row text-center">
+    <div class="col-md-6 col-sm-6 col-12">
+        <h4>Gol Krallığı</h4>
+        <div class="table-responsive justify-content-center">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <td><strong>Oyuncu</strong></td>
+                        <td><strong>Toplam Golü</strong></td>
+                    </tr>
+                </thead>
+
+                <tbody style="background-color: rgba(255, 255, 255, 0.1)">
+
+                    @foreach (var item in Model.Oyunculars)
+                    {
+                        <tr>
+                            <td>@item.ad</td>
+                            <td>@item.golSayisi</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-12">
+
+        <h4>Haftanın Enleri</h4>
+        <div class="table-responsive justify-content-center">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <td><strong>Haftanın Oyuncusu</strong></td>
+                        <td>@Model.Enlers[0].haftaninOyuncusu</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Haftanın Kalecisi</strong></td>
+                        <td>@Model.Enlers[0].haftaninKalecisi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Haftanın Defansı</strong></td>
+                        <td>@Model.Enlers[0].haftaninDefansi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Haftanın Ortasahası</strong></td>
+                        <td>@Model.Enlers[0].haftaninOrtasahasi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Haftanın Forveti</strong></td>
+                        <td>@Model.Enlers[0].haftaninForveti</td>
+                    </tr>
+                </tbody>
+               
+            </table>
+        </div>
+    </div>
+</div>
+<!--- secenekler sonu -->

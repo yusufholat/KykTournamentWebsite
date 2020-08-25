@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "OynanacakMaclariDuzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model WebKyk.Models.TablolarDB
+
+<h3>Oynanacak Maç Sil</h3>
+
+<hr />
+
+<section>
+    @using (Html.BeginForm("OynanacakMacSil", "Admin", FormMethod.Post))
+    {
+        <div class="table-responsive justify-content-center">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <td><strong>Ev Sahibi Takım</strong></td>
+                        <td><strong></strong></td>
+                        <td><strong>Deplasman Takım</strong></td>
+                        <td>Grubu</td>
+                        <td><strong>Tarihi</strong></td>
+                        <td><strong>Seçim</strong></td>
+                    </tr>
+                </thead>
+
+                <tbody style="background-color: rgba(255, 255, 255, 0.1)">
+
+                    @foreach (var item in Model.OynanacakMaclars)
+                    {
+                        <tr>
+                            <td>@item.birincitakimismi</td>
+                            <td><strong>V</strong></td>
+                            <td>@item.ikincitakimismi</td>
+                            <td>@item.Gruplar.ad</td>
+                            <td>@item.mactarihi</td>
+                            <td>@Html.ActionLink("sil", "OynanacakMacSil", "Admin", new { oynanacakmacID = item.oynanacakmacID }, new { @class = "btn btn-danger " })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+</section>
+

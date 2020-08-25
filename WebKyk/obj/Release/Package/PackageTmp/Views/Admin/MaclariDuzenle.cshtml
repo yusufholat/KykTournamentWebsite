@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "MaclariDuzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model WebKyk.Models.TablolarDB
+
+<h3>Maç Sil</h3>
+
+<hr />
+
+
+<section>
+    @using (Html.BeginForm("MacSil", "Admin", FormMethod.Post))
+    {
+        <div class="table-responsive justify-content-center">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <td><strong>Maç</strong></td>
+                        <td><strong>Seçim</strong></td>
+                    </tr>
+                </thead>
+
+                <tbody style="background-color: rgba(255, 255, 255, 0.1)">
+                    @foreach (var item in Model.Maclars)
+                    {
+                        <tr>
+                            <td>@item.ad</td>
+                            <td>@Html.ActionLink("sil", "MacSil", "Admin", new { macID = item.macID }, new { @class = "btn btn-danger " })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+</section>
+
+
+
